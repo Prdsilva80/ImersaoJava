@@ -6,36 +6,36 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class JsonParser {
-    
-    private static final Pattern REGEX_ITEMS = Pattern.compile(".*\\[(.+)\\].*");
-    private static final Pattern REGEX_ATRIBUTOS_JSON = Pattern.compile("\"(.+?)\":\"(.*?)\"");
 
-    public List<Map<String, String>> parse(String json) {
-        Matcher matcher = REGEX_ITEMS.matcher(json);
-        if (!matcher.find()) {
+  private static final Pattern REGEX_ITEMS = Pattern.compile(".*\\[(.+)\\].*");
+  private static final Pattern REGEX_ATRIBUTOS_JSON = Pattern.compile("\"(.+?)\":\"(.*?)\"");
 
-            throw new IllegalArgumentException("Não encontrou items.");
-        }
+  public List<Map<String, String>> parse(String json) {
+    Matcher matcher = REGEX_ITEMS.matcher(json);
+    if (!matcher.find()) {
 
-        String[] items = matcher.group(1).split("\\},\\{");
+      throw new IllegalArgumentException("Não encontrou items.");
+    }
 
-        List<Map<String, String>> dados = new ArrayList<>();
+    String[] items = matcher.group(1).split("\\},\\{");
 
-        for (String item : items) {
+    List<Map<String, String>> dados = new ArrayList<>();
 
-            Map<String, String> atributosItem = new HashMap<>();
+    for (String item : items) {
 
-            Matcher matcherAtributosJson = REGEX_ATRIBUTOS_JSON.matcher(item);
-            while (matcherAtributosJson.find()) {
-                String atributo = matcherAtributosJson.group(1);
-                String valor = matcherAtributosJson.group(2);
-                atributosItem.put(atributo, valor);
-            }
+      Map<String, String> atributosItem = new HashMap<>();
 
-            dados.add(atributosItem);
-        }
+      Matcher matcherAtributosJson = REGEX_ATRIBUTOS_JSON.matcher(item);
+      while (matcherAtributosJson.find()) {
+        String atributo = matcherAtributosJson.group(1);
+        String valor = matcherAtributosJson.group(2);
+        atributosItem.put(atributo, valor);
+      }
 
-        return dados;
-    } 
+      dados.add(atributosItem);
+    }
+
+    return dados;
+  }
 
 }
