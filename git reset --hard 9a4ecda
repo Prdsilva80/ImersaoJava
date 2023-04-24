@@ -1,0 +1,7 @@
+[33m563ddf2[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m HEAD@{0}: reset: moving to HEAD~2
+[33m66a8b8f[m[33m ([m[1;31morigin/main[m[33m)[m HEAD@{1}: commit: Variaveis de ambiente
+[33m9a4ecda[m HEAD@{2}: commit: Adicionado variavel de ambiente
+[33m563ddf2[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m HEAD@{3}: commit: Changed api address because of IMDb instability
+[33me5e38f9[m HEAD@{4}: commit: environment variable
+[33m0bab205[m HEAD@{5}: Branch: renamed refs/heads/main to refs/heads/main
+[33m0bab205[m HEAD@{7}: commit (initial): first commit
