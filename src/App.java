@@ -13,7 +13,6 @@ public class App {
         // fazer uma conexão HTTP e buscar os top 250 filmes
         String IMDB_API_KEY = System.getenv("IMDB_API_KEY");
         final String url = "https://imdb-api.com/en/API/Top250Movies/" + IMDB_API_KEY;
-        System.out.println("API KEY: " + IMDB_API_KEY);
         URI endereco = URI.create(url);
         var client = HttpClient.newHttpClient();
         var request = HttpRequest.newBuilder(endereco).GET().build();
