@@ -11,13 +11,15 @@ public class App {
     public static void main(String[] args) throws Exception {
 
         // fazer uma conexão HTTP e buscar os top 250 filmes
-        //String imdbKey = System.getenv("IMDB_API_KEY");
-        final String url = "https://raw.githubusercontent.com/alura-cursos/imersao-java-2-api/main/TopMovies.json";
+        String IMDB_API_KEY = System.getenv("IMDB_API_KEY");
+        final String url = "https://imdb-api.com/en/API/Top250Movies/" + IMDB_API_KEY;
+        System.out.println("API KEY: " + IMDB_API_KEY);
         URI endereco = URI.create(url);
         var client = HttpClient.newHttpClient();
         var request = HttpRequest.newBuilder(endereco).GET().build();
         HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
         String body = response.body();
+        System.out.println(body);
 
         // extrair só os dados que interessam (titulo, poster, classificação)
         var parser = new JsonParser();
